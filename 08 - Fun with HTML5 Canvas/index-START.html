@@ -35,8 +35,14 @@
     if (hue >= 360) {
       hue = 0
     }
-
-    ctx.lineWidth++;
+    if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+      direction = !direction;
+    }
+    if (direction) {
+      ctx.lineWidth++;
+    } else {
+      ctx.lineWidth--;
+    }
   }
 
   canvas.addEventListener('mousedown', (e) => {
@@ -52,6 +58,7 @@
 <style>
   html, body {
     margin: 0;
+    background-color: black;
   }
 </style>
 
